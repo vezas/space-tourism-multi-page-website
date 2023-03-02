@@ -1,0 +1,137 @@
+@import 'src/scss/_utilities.scss';
+@import 'src/scss/_mixins.scss';
+
+.header {
+  position: fixed;
+  z-index: 1;
+  inset: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include bp-desktop {
+    margin-top: 4rem;
+  }
+
+  @include bp-desktop {
+    &::before {
+      content: '';
+      position: relative;
+      z-index: 1;
+      height: 1px;
+      width: 100%;
+      margin-inline: 5rem -3rem;
+      background-color: unquote('hsl(var(--color-primary-white) / 0.5)');
+    }
+  }
+
+  .logo {
+    &Box {
+      order: -1;
+      margin-inline: clamp(0.5rem, 10vw, 6rem) auto;
+      margin-block: 2rem;
+    }
+
+    &Link {
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &Item {
+      width: 4rem;
+      height: 4rem;
+      display: block;
+      object-fit: contain;
+
+      @include bp-desktop {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+  }
+
+  .menu {
+    @extend .menu-background;
+    align-self: stretch;
+    padding-inline: clamp(2rem, 5vw, 10rem);
+    list-style: none;
+    display: none;
+    justify-content: space-evenly;
+    gap: clamp(2rem, 10vw, 10rem);
+    position: relative;
+
+    @include bp-tablet {
+      display: flex;
+    }
+
+    &Item {
+      @include bp-desktop {
+        & {
+          counter-increment: item-list-counter;
+        }
+      }
+    }
+
+    &Link {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: 1.4rem;
+      color: unquote('hsl(var(--color-primary-white))');
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.36px;
+      backface-visibility: hidden;
+
+      @include bp-desktop {
+        font-size: 1.6rem;
+
+        &::before {
+          content: '0' counter(item-list-counter) '';
+          margin-right: 1rem;
+          font-weight: 700;
+        }
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 2px solid unquote('hsl(var(--color-primary-white) / 0.25)');
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &Active {
+        border-bottom: 2px solid unquote('hsl(var(--color-primary-white))');
+
+        &:hover,
+        &:active {
+          border-bottom: 2px solid unquote('hsl(var(--color-primary-white))');
+        }
+      }
+    }
+  }
+
+  .toggleMenu {
+    width: 2.4rem;
+    height: 2.1rem;
+    z-index: 3;
+    margin-inline: clamp(0.5rem, 10vw, 6rem);
+    margin-block: 2rem;
+    background: transparent url('./../../../../public/assets/shared/icon-hamburger.svg') no-repeat
+      center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+
+    @include bp-tablet {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

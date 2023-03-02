@@ -1,0 +1,17 @@
+.accessibility-only {
+  font-size: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: none;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.menu-background {
+  background-color: unquote('hsl(var(--color-primary-white) / 0.05)');
+  backdrop-filter: blur(15px);
+}

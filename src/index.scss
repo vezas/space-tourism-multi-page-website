@@ -1,6 +1,8 @@
-@import 'src/scss/variables';
-@import 'src/scss/_typography.scss';
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
+@import 'src/scss/variables';
+@import 'src/scss/_mixins.scss';
+@import 'src/scss/_utilities.scss';
+@import 'src/scss/_typography.scss';
 
 *,
 *::before,
