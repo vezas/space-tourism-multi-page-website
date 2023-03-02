@@ -1,16 +1,10 @@
 :root {
-  --color-primary-dark: 230, 35%, 7%;
-  --color-primary-light: 231, 77%, 90%;
-  --color-primary-white: 0, 0%, 100%;
+  --color-primary-dark: 230 35% 7%;
+  --color-primary-light: 231 77% 90%;
+  --color-primary-white: 0 0% 100%;
 
   --ff-main-sans-serif: 'Barlow Condensed', sans-serif;
   --ff-main-serif: 'Bellefair', serif;
 
-  --fs-small-1: 1.4rem;
-  --fs-small-2: 1.6rem;
-  --fs-medium-1: 2.8rem;
-  --fs-medium-2: 3.2rem;
-  --fs-medium-3: 5.6rem;
-  --fs-big-1: 10rem;
-  --fs-big-2: 15rem;
+  --text-gap: 3rem;
 }

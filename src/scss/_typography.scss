@@ -1,0 +1,35 @@
+@import 'src/scss/_mixins.scss';
+
+.paragraph {
+  font-size: 1.5rem;
+  color: unquote('hsl(var(--color-primary-light))');
+  line-height: 2;
+
+  @include bp-tablet {
+    font-size: 1.6rem;
+  }
+}
+
+.heading {
+  text-transform: uppercase;
+  &--home {
+    font-size: 1.6rem;
+    letter-spacing: 2.7px;
+    color: unquote('hsl(var(--color-primary-light))');
+
+    @include bp-tablet {
+      font-size: 2rem;
+    }
+
+    &--main {
+      font-size: 8rem;
+      font-family: var(--ff-main-serif);
+      color: unquote('hsl(var(--color-primary-white))');
+      line-height: 1.1;
+
+      @include bp-tablet {
+        font-size: 15rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import 'src/scss/_mixins.scss';
+@import 'src/scss/_typography.scss';
+
+.home {
+  padding-bottom: calc(max(4rem, 10vh));
+  background: url(./../../../public/assets/home/background-home-mobile.jpg) no-repeat bottom;
+  background-size: cover;
+  isolation: isolate;
+
+  @include bp-tablet {
+    background: url(./../../../public/assets/home/background-home-tablet.jpg) no-repeat bottom;
+    background-size: cover;
+  }
+
+  @include bp-desktop {
+    padding-top: 13rem;
+    background: url(./../../../public/assets/home/background-home-desktop.jpg) no-repeat right
+      center;
+    background-size: cover;
+    align-items: end;
+  }
+
+  .textGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--text-gap);
+
+    .heading {
+      @extend .heading--home;
+      display: flex;
+      flex-direction: column;
+      gap: var(--text-gap);
+
+      &Main {
+        @extend .heading--home--main;
+        display: block;
+      }
+    }
+
+    .paragraph {
+      @extend .paragraph;
+      max-width: 50ch;
+
+      @include bp-tablet {
+        max-width: 70ch;
+      }
+    }
+  }
+
+  .button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    padding-inline: 1.5em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    text-decoration: none;
+    font-family: var(--ff-main-serif);
+    color: unquote('hsl(var(--color-primary-dark))');
+    background-color: unquote('hsl(var(--color-primary-white))');
+    border: none;
+
+    @include bp-tablet {
+      font-size: 3.2rem;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: unquote('hsl(var(--color-primary-light) / 0.1)');
+      border: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transition: all 500ms;
+      opacity: 0;
+    }
+  }
+}

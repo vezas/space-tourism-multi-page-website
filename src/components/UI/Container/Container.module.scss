@@ -1,0 +1,17 @@
+@import 'src/scss/_mixins.scss';
+
+.container {
+  min-height: 100vh;
+  padding: 8rem 2rem 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: var(--text-gap);
+
+  @include bp-desktop {
+    padding-inline: clamp(10rem, 10vw, 20rem);
+    grid-template-columns: repeat(2, min-content);
+    justify-content: space-between;
+    text-align: left;
+  }
+}
