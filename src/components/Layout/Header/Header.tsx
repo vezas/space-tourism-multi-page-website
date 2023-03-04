@@ -38,7 +38,7 @@ export const Header: FC = () => {
           ))}
         </nav>
       )}
-      <MobileMenu isOpen={isOpen} />
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       <button className={styles.toggleMenu} onClick={toggleMenu}>
         <span className='accessibility-only'>Menu button</span>
       </button>

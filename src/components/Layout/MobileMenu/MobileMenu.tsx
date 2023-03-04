@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC, useRef, Dispatch, SetStateAction } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
@@ -7,10 +7,13 @@ import styles from 'src/components/Layout/MobileMenu/MobileMenu.module.scss';
 
 interface MobileMenuProps {
   isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const MobileMenu: FC<MobileMenuProps> = ({ isOpen }) => {
+export const MobileMenu: FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
   const navRef = useRef(null);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <CSSTransition
@@ -36,6 +39,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({ isOpen }) => {
                   : styles.mobileMenuLink
               }
               to={to}
+              onClick={closeMenu}
             >
               {name}
             </NavLink>

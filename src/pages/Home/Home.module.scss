@@ -22,7 +22,10 @@
     flex-direction: column;
     align-items: center;
     gap: var(--text-gap);
-    justify-self: start;
+
+    @include bp-desktop {
+      justify-self: start;
+    }
 
     .heading {
       @extend .heading-1--home;
@@ -47,7 +50,9 @@
   }
 
   .buttonBox {
-    justify-self: end;
+    @include bp-desktop {
+      justify-self: end;
+    }
 
     .button {
       position: relative;

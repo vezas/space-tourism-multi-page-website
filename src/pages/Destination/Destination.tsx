@@ -55,7 +55,7 @@ export const Destination: FC = () => {
         <Submenu
           className={styles.submenu}
           items={submenuItems}
-          style='dotted'
+          style='tabs'
           toggleContent={setPlanetId}
           activeId={planetId}
         />
