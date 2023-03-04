@@ -16,7 +16,7 @@ export const Home: FC = () => {
           truly out of this world experience!
         </p>
       </div>
-      <div>
+      <div className={styles.buttonBox}>
         <Link className={styles.button} to='/destination'>
           Explore
         </Link>

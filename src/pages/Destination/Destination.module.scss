@@ -1,0 +1,130 @@
+@import 'src/scss/_mixins.scss';
+@import 'src/scss/_typography.scss';
+
+.destination {
+  --text-gap: 2rem;
+  background: url(./../../../public/assets/destination/background-destination-mobile.jpg) no-repeat
+    top;
+  background-size: cover;
+  isolation: isolate;
+
+  @include bp-tablet {
+    background: url(./../../../public/assets/destination/background-destination-tablet.jpg)
+      no-repeat top;
+    background-size: cover;
+  }
+
+  @include bp-desktop {
+    padding-bottom: 0;
+    background: url(./../../../public/assets/destination/background-destination-desktop.jpg)
+      no-repeat right top;
+    background-size: cover;
+    grid-template-areas:
+      'header header'
+      'image article'
+      'image article';
+    align-items: center;
+  }
+
+  .header {
+    @extend .heading-1--destination;
+
+    @include bp-tablet {
+      justify-self: start;
+    }
+
+    @include bp-desktop {
+      grid-area: header;
+    }
+
+    &Counter {
+      @extend .heading-1--destination--counter;
+    }
+  }
+
+  .imageBox {
+    display: grid;
+    place-items: center;
+    width: 17rem;
+    height: 17rem;
+
+    @include bp-tablet {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    @include bp-desktop {
+      width: 44.5rem;
+      height: 44.5rem;
+      grid-area: image;
+      justify-self: start;
+    }
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .descriptionGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--text-gap);
+
+    @include bp-desktop {
+      grid-area: article;
+      justify-self: end;
+    }
+
+    .name {
+      @extend .heading-2;
+    }
+
+    .paragraph {
+      @extend .paragraph;
+      max-width: 80ch;
+      height: 14rem;
+    }
+
+    .infoGroup {
+      padding-top: var(--text-gap);
+      border-top: 1px solid unquote('hsl(var(--color-primary-white) / 0.25)');
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--text-gap);
+
+      @include bp-tablet {
+        gap: 10rem;
+        flex-direction: row;
+      }
+
+      @include bp-desktop {
+        gap: 4rem;
+        justify-content: flex-start;
+      }
+
+      &Heading {
+        @extend .heading-3;
+      }
+
+      &Text {
+        @extend .destination--info-text;
+      }
+    }
+  }
+}
+
+.imageAnimation {
+  &Enter {
+    opacity: 0;
+    transform: rotate(30deg);
+  }
+
+  &EnterActive {
+    opacity: 1;
+    transform: rotate(0);
+    transition: all 1000ms linear;
+  }
+}

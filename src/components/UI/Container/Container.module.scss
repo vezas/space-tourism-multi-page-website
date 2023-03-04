@@ -2,15 +2,19 @@
 
 .container {
   min-height: 100vh;
-  padding: 8rem 2rem 0;
+  padding: 8rem 2rem calc(max(2rem, 2vh));
   display: grid;
   place-items: center;
   text-align: center;
   gap: var(--text-gap);
 
+  @include bp-tablet {
+    padding-top: 10rem;
+  }
+
   @include bp-desktop {
-    padding-inline: clamp(10rem, 10vw, 20rem);
-    grid-template-columns: repeat(2, min-content);
+    padding: 13rem clamp(10rem, 10vw, 20rem) 7.5rem;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
     justify-content: space-between;
     text-align: left;
   }
