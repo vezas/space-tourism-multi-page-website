@@ -24,6 +24,7 @@
     gap: var(--text-gap);
 
     @include bp-desktop {
+      align-items: start;
       justify-self: start;
     }
 

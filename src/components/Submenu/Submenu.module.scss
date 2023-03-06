@@ -5,15 +5,19 @@
   align-items: center;
   height: 4rem;
   justify-content: center;
+  align-items: center;
   gap: var(--submenu-gap);
 
   @include bp-desktop {
     justify-content: flex-start;
   }
 
-  &--tabs {
-    font-size: 1.4rem;
-    letter-spacing: 2.36px;
+  &--numbered {
+    @include bp-desktop {
+      height: auto;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
 }
 
@@ -83,7 +87,17 @@
     background-color: transparent;
     counter-increment: submenu-item-counter;
 
-    &::before {
+    @include bp-tablet {
+      height: 5.8rem;
+      width: 5.8rem;
+    }
+
+    @include bp-desktop {
+      height: 8rem;
+      width: 8rem;
+    }
+
+    &::after {
       display: grid;
       place-items: center;
       width: 100%;
@@ -91,6 +105,14 @@
       border-radius: 50%;
       content: counter(submenu-item-counter);
       font-size: 1.6rem;
+
+      @include bp-tablet {
+        font-size: 2.4rem;
+      }
+
+      @include bp-desktop {
+        font-size: 3.2rem;
+      }
     }
 
     &:hover,

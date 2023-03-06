@@ -1,0 +1,130 @@
+@import 'src/scss/_mixins.scss';
+@import 'src/scss/_typography.scss';
+
+.technology {
+  padding-inline: 0;
+  padding-bottom: 0;
+  background: url(./../../../public/assets/technology/background-technology-mobile.jpg) no-repeat
+    top;
+  background-size: cover;
+
+  @include bp-tablet {
+    background: url(./../../../public/assets/technology/background-technology-tablet.jpg) no-repeat
+      top;
+    background-size: cover;
+  }
+
+  @include bp-desktop {
+    padding-left: clamp(10rem, 10vw, 20rem);
+    background: url(./../../../public/assets/technology/background-technology-desktop.jpg) no-repeat
+      right top;
+    background-size: cover;
+    grid-template-areas:
+      'header header'
+      'article image'
+      'article image';
+  }
+
+  .header {
+    @extend .heading-1--subpage;
+    padding-inline: 2rem;
+
+    @include bp-tablet {
+      justify-self: start;
+    }
+
+    @include bp-desktop {
+      grid-area: header;
+    }
+
+    &Counter {
+      @extend .heading-1--subpage--counter;
+    }
+  }
+
+  .imageBox {
+    width: 100%;
+    height: clamp(10rem, 50vh, 35rem);
+
+    @include bp-desktop {
+      justify-self: end;
+      grid-area: image;
+      height: clamp(10rem, 70vh, 55rem);
+      width: clamp(10rem, 70vh, 55rem);
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .descriptionGroup {
+    padding-inline: 2rem;
+    gap: var(--text-gap);
+    display: flex;
+    flex-direction: column;
+
+    @include bp-tablet {
+      --text-gap: 5rem;
+    }
+
+    @include bp-desktop {
+      grid-area: article;
+      display: grid;
+      grid-template-areas:
+        'submenu terminology'
+        'submenu name'
+        'submenu description';
+      align-items: center;
+      row-gap: 1rem;
+    }
+
+    .submenu {
+      @include bp-desktop {
+        grid-area: submenu;
+        align-self: stretch;
+      }
+    }
+
+    .terminology {
+      @extend .heading-2--technology;
+
+      @include bp-desktop {
+        grid-area: terminology;
+      }
+    }
+
+    .name {
+      @extend .heading-3--technology;
+
+      @include bp-desktop {
+        grid-area: name;
+        min-height: 17rem;
+        display: grid;
+        align-items: center;
+      }
+    }
+
+    .description {
+      @extend .paragraph;
+      max-width: 80ch;
+      grid-area: description;
+      min-height: 26rem;
+      display: grid;
+      align-items: flex-start;
+    }
+  }
+}
+
+.imageAnimation {
+  &Enter {
+    opacity: 0;
+  }
+
+  &EnterActive {
+    opacity: 1;
+    transition: all 1000ms ease;
+  }
+}

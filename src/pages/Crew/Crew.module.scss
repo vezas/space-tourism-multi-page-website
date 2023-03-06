@@ -20,7 +20,6 @@
   @include bp-desktop {
     background: url(./../../../public/assets/crew/background-crew-desktop.jpg) no-repeat right top;
     background-size: cover;
-    // grid-template-columns: max-content max-content;
     grid-template-areas:
       'header header'
       'article image'
@@ -81,7 +80,6 @@
     }
 
     .submenu {
-      margin-top: auto;
       order: 1;
     }
 
@@ -102,6 +100,10 @@
     .bio {
       @extend .paragraph;
       max-width: 80ch;
+
+      @include bp-tablet {
+        min-height: 10rem;
+      }
 
       @include bp-desktop {
         min-height: 22rem;
