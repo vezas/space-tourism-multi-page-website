@@ -2,6 +2,7 @@
 
 .submenu {
   display: flex;
+  align-items: center;
   height: 4rem;
   justify-content: center;
   gap: var(--submenu-gap);

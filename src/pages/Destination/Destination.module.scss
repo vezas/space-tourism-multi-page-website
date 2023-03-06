@@ -6,7 +6,6 @@
   background: url(./../../../public/assets/destination/background-destination-mobile.jpg) no-repeat
     top;
   background-size: cover;
-  isolation: isolate;
 
   @include bp-tablet {
     background: url(./../../../public/assets/destination/background-destination-tablet.jpg)
@@ -27,7 +26,7 @@
   }
 
   .header {
-    @extend .heading-1--destination;
+    @extend .heading-1--subpage;
 
     @include bp-tablet {
       justify-self: start;
@@ -38,7 +37,7 @@
     }
 
     &Counter {
-      @extend .heading-1--destination--counter;
+      @extend .heading-1--subpage--counter;
     }
   }
 
@@ -125,6 +124,6 @@
   &EnterActive {
     opacity: 1;
     transform: rotate(0);
-    transition: all 1000ms linear;
+    transition: all 1000ms ease;
   }
 }

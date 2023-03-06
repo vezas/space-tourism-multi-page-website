@@ -1,0 +1,122 @@
+@import 'src/scss/_mixins.scss';
+@import 'src/scss/_typography.scss';
+
+.crew {
+  background: url(./../../../public/assets/crew/background-crew-mobile.jpg) no-repeat top;
+  background-size: cover;
+
+  @include bp-tablet {
+    overflow: hidden;
+    padding-bottom: 0;
+    background: url(./../../../public/assets/crew/background-crew-tablet.jpg) no-repeat top;
+    background-size: cover;
+    grid-template-areas:
+      'header'
+      'article'
+      'image';
+    align-items: center;
+  }
+
+  @include bp-desktop {
+    background: url(./../../../public/assets/crew/background-crew-desktop.jpg) no-repeat right top;
+    background-size: cover;
+    // grid-template-columns: max-content max-content;
+    grid-template-areas:
+      'header header'
+      'article image'
+      'article image';
+  }
+
+  .header {
+    @extend .heading-1--subpage;
+
+    @include bp-tablet {
+      justify-self: start;
+      grid-area: header;
+    }
+
+    &Counter {
+      @extend .heading-1--subpage--counter;
+    }
+  }
+
+  .imageBox {
+    border-bottom: 1px solid unquote('hsl(var(--color-primary-white) / 0.25)');
+    width: 90%;
+    height: 25rem;
+
+    @include bp-tablet {
+      height: 40rem;
+      grid-area: image;
+      align-self: flex-end;
+      border: none;
+    }
+
+    @include bp-desktop {
+      width: auto;
+      height: clamp(30rem, 70vh, 80rem);
+      justify-self: end;
+    }
+  }
+
+  .image {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .descriptionGroup {
+    --text-gap: 1rem;
+    gap: var(--text-gap);
+    display: flex;
+    flex-direction: column;
+
+    @include bp-tablet {
+      --text-gap: 2.5rem;
+      grid-area: article;
+    }
+
+    @include bp-desktop {
+      justify-self: start;
+      gap: 1rem;
+    }
+
+    .submenu {
+      margin-top: auto;
+      order: 1;
+    }
+
+    .role {
+      @extend .heading-2--crew;
+    }
+
+    .name {
+      @extend .heading-3--crew;
+
+      @include bp-desktop {
+        display: grid;
+        align-items: center;
+        min-height: 17rem;
+      }
+    }
+
+    .bio {
+      @extend .paragraph;
+      max-width: 80ch;
+
+      @include bp-desktop {
+        min-height: 22rem;
+      }
+    }
+  }
+}
+
+.imageAnimation {
+  &Enter {
+    opacity: 0;
+  }
+
+  &EnterActive {
+    opacity: 1;
+    transition: all 1000ms ease;
+  }
+}
