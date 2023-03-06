@@ -2,6 +2,7 @@
   "name": "react-app-starter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
