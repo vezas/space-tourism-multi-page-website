@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout } from 'src/components/Layout';
@@ -8,16 +8,34 @@ import { Crew } from 'src/pages/Crew';
 import { Technology } from 'src/pages/Technology';
 import 'src/index.scss';
 
+export const routes = [
+  {
+    path: '/',
+    element: <Home />,
+    nodeRef: createRef()
+  },
+  {
+    path: '/destination',
+    element: <Destination />,
+    nodeRef: createRef()
+  },
+  {
+    path: '/crew',
+    element: <Crew />,
+    nodeRef: createRef()
+  },
+  {
+    path: '/technology',
+    element: <Technology />,
+    nodeRef: createRef()
+  }
+];
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    children: [
-      { path: '/', element: <Home /> },
-      { path: '/destination', element: <Destination /> },
-      { path: '/crew', element: <Crew /> },
-      { path: '/technology', element: <Technology /> }
-    ]
+    children: routes.map(({ path, element }) => ({ path, element }))
   }
 ]);
 

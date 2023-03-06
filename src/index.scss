@@ -44,4 +44,5 @@ p {
 body {
   min-height: 100vh;
   background-color: unquote('hsl(var(--color-primary-dark))');
+  overflow-x: hidden;
 }
