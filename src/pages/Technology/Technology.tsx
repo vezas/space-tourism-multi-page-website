@@ -9,7 +9,7 @@ export const Technology: FC = () => {
   const imageRef = useRef(null);
   const [technologyId, setTechnologyId] = useState<number>(0);
   const [pageData, setPageData] = useState(data.technology[technologyId]);
-  const [isImagePortrait, setIsImagePortrait] = useState<undefined | boolean>();
+  const [isImagePortrait, setIsImagePortrait] = useState<boolean>(window.innerWidth >= 1024);
 
   window.addEventListener('resize', () => setIsImagePortrait(window.innerWidth >= 1024));
 

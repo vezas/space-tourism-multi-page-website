@@ -100,9 +100,9 @@
     .bio {
       @extend .paragraph;
       max-width: 80ch;
+      min-height: 10rem;
 
       @include bp-tablet {
-        min-height: 10rem;
       }
 
       @include bp-desktop {

@@ -13,8 +13,9 @@
   }
 
   &--numbered {
+    height: auto;
+
     @include bp-desktop {
-      height: auto;
       flex-direction: column;
       justify-content: flex-start;
     }
