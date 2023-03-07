@@ -17,7 +17,7 @@ export const Header: FC = () => {
           <span className='accessibility-only'>Home page</span>
           <img
             className={styles.logoItem}
-            src={process.env.PUBLIC_URL + './assets/shared/logo.svg'}
+            src={process.env.PUBLIC_URL + '/assets/shared/logo.svg'}
             alt='company logo'
           />
         </Link>

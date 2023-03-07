@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Layout } from 'src/components/Layout';
 import { Home } from 'src/pages/Home';
 import { Destination } from 'src/pages/Destination';
@@ -31,7 +31,7 @@ export const routes = [
   }
 ];
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
