@@ -4,7 +4,6 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { routes } from 'src/index';
 import { Header } from 'src/components/Layout/Header';
 import styles from 'src/components/Layout/Layout.module.scss';
-import { match } from 'assert';
 
 export const Layout: FC = () => {
   const location = useLocation();
